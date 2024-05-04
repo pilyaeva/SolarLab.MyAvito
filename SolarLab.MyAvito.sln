@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34701.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarLab.MyAvito.Api", "src\SolarLab.MyAvito.Api\SolarLab.MyAvito.Api.csproj", "{7FD04E4E-AB09-4552-9092-1E6A22AE13F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FF344E98-9B9A-4CCD-8FBB-AD89587C9D95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9830A1C4-4916-4CBD-B471-EA7F441BB9E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarLab.MyAvito.Domain", "src\SolarLab.MyAvito.Domain\SolarLab.MyAvito.Domain.csproj", "{83551271-E634-4323-8F55-E647EA4F9884}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarLab.MyAvito.Application", "src\SolarLab.MyAvito.Application\SolarLab.MyAvito.Application.csproj", "{D64A623D-D341-46DB-8D89-9CCCF90DCE71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarLab.MyAvito.Infrastructure", "src\SolarLab.MyAvito.Infrastructure\SolarLab.MyAvito.Infrastructure.csproj", "{544BAB03-6B9D-4805-A403-CB14454D5DC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarLab.MyAvito.DbMigrator", "src\SolarLab.MyAvito.DbMigrator\SolarLab.MyAvito.DbMigrator.csproj", "{A701EEE9-0CE5-458F-A81E-EE60E71F2195}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FD04E4E-AB09-4552-9092-1E6A22AE13F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD04E4E-AB09-4552-9092-1E6A22AE13F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD04E4E-AB09-4552-9092-1E6A22AE13F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD04E4E-AB09-4552-9092-1E6A22AE13F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83551271-E634-4323-8F55-E647EA4F9884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83551271-E634-4323-8F55-E647EA4F9884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83551271-E634-4323-8F55-E647EA4F9884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83551271-E634-4323-8F55-E647EA4F9884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D64A623D-D341-46DB-8D89-9CCCF90DCE71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64A623D-D341-46DB-8D89-9CCCF90DCE71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64A623D-D341-46DB-8D89-9CCCF90DCE71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64A623D-D341-46DB-8D89-9CCCF90DCE71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{544BAB03-6B9D-4805-A403-CB14454D5DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{544BAB03-6B9D-4805-A403-CB14454D5DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{544BAB03-6B9D-4805-A403-CB14454D5DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{544BAB03-6B9D-4805-A403-CB14454D5DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A701EEE9-0CE5-458F-A81E-EE60E71F2195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A701EEE9-0CE5-458F-A81E-EE60E71F2195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A701EEE9-0CE5-458F-A81E-EE60E71F2195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A701EEE9-0CE5-458F-A81E-EE60E71F2195}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7FD04E4E-AB09-4552-9092-1E6A22AE13F4} = {FF344E98-9B9A-4CCD-8FBB-AD89587C9D95}
+		{83551271-E634-4323-8F55-E647EA4F9884} = {FF344E98-9B9A-4CCD-8FBB-AD89587C9D95}
+		{D64A623D-D341-46DB-8D89-9CCCF90DCE71} = {FF344E98-9B9A-4CCD-8FBB-AD89587C9D95}
+		{544BAB03-6B9D-4805-A403-CB14454D5DC8} = {FF344E98-9B9A-4CCD-8FBB-AD89587C9D95}
+		{A701EEE9-0CE5-458F-A81E-EE60E71F2195} = {FF344E98-9B9A-4CCD-8FBB-AD89587C9D95}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04564F63-766C-4597-906A-031C8B005563}
+	EndGlobalSection
+EndGlobal
