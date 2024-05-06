@@ -5,6 +5,7 @@ using SolarLab.MyAvito.Api.Models;
 using SolarLab.MyAvito.Application;
 using SolarLab.MyAvito.Domain;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -55,23 +56,22 @@ namespace SolarLab.MyAvito.Api.Controllers
                 },
                 cancellationToken);
 
-            var bytes = await GetBytesAsync(advertisementsDtoIn.Photos[0], cancellationToken);
+            var files = new List<Domain.File>();
 
-            await _fileRepository.AddAsync(
-                advertisementsDtoIn
-                    .Photos
-                    .Select(photo =>
-                        new Domain.File
-                        {
-                            Id = Guid.NewGuid(),
-                            AdvertisementId = addedAdvertisement.Id,
-                            Name = photo.FileName,
-                            Content = bytes,
-                            ContentType = photo.ContentType,
-                            Length = photo.Length
-                        })
-                    .ToList(),
-                cancellationToken);
+            foreach (var photo in advertisementsDtoIn.Photos)
+            {
+                files.Add(new Domain.File
+                {
+                    Id = Guid.NewGuid(),
+                    AdvertisementId = addedAdvertisement.Id,
+                    Name = photo.FileName,
+                    Content = await GetBytesAsync(photo, cancellationToken),
+                    ContentType = photo.ContentType,
+                    Length = photo.Length
+                });
+            }
+
+            await _fileRepository.AddAsync(files, cancellationToken);
 
             _logger.LogInformation("Создано объявление с ID {0}", addedAdvertisement.Id);
 
