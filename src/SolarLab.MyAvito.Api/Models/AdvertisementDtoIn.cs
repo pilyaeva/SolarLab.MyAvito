@@ -10,6 +10,9 @@ namespace SolarLab.MyAvito.Api.Models
         /// </summary>
         public string Title { get; set; }
 
+        /// <summary>
+        /// Цена товара.
+        /// </summary>
         public decimal Price { get; set; }
 
         /// <summary>
@@ -22,6 +25,9 @@ namespace SolarLab.MyAvito.Api.Models
         /// </summary>
         public string Description { get; set; }
 
+        /// <summary>
+        /// Фотографии товара.
+        /// </summary>
         public List<IFormFile> Photos { get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace SolarLab.MyAvito.Domain
         public string ContentType { get; set; }
 
         /// <summary>
-        /// Длинна файла.
+        /// Длина файла.
         /// </summary>
         public long Length { get; set; }
 

@@ -5,7 +5,7 @@ namespace SolarLab.MyAvito.Domain
     public class Advertisement
     {
         /// <summary>
-        /// Идентификатор объявления.
+        /// Идентификатор.
         /// </summary>
         public Guid Id { get; set; }
 
@@ -20,7 +20,7 @@ namespace SolarLab.MyAvito.Domain
         public string Title { get; set; }
 
         /// <summary>
-        /// Цена товара из объявления.
+        /// Цена товара.
         /// </summary>
         public decimal Price { get; set; }
 
@@ -33,5 +33,10 @@ namespace SolarLab.MyAvito.Domain
         /// Описание товара.
         /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// Время создания.
+        /// </summary>
+        public DateTime CreatedAt { get; set; }
     }
 }

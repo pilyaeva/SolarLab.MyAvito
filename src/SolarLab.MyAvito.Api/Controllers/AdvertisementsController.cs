@@ -52,7 +52,8 @@ namespace SolarLab.MyAvito.Api.Controllers
                     Title = advertisementsDtoIn.Title,
                     Price = advertisementsDtoIn.Price,
                     Condition = advertisementsDtoIn.Condition,
-                    Description = advertisementsDtoIn.Description
+                    Description = advertisementsDtoIn.Description,
+                    CreatedAt = DateTime.UtcNow
                 },
                 cancellationToken);
 

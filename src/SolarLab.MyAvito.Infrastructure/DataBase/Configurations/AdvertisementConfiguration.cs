@@ -45,7 +45,10 @@ namespace SolarLab.MyAvito.Infrastructure.DataBase.Configurations
                 .IsRequired()
                 .HasMaxLength(1000);
 
-
+            builder
+                .Property(x => x.CreatedAt)
+                .HasColumnName("created_at")
+                .IsRequired();
         }
     }
 }
