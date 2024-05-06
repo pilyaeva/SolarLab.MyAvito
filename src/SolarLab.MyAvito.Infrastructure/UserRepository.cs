@@ -1,6 +1,11 @@
-﻿using SolarLab.MyAvito.Application;
+﻿using Microsoft.EntityFrameworkCore;
+using SolarLab.MyAvito.Application;
 using SolarLab.MyAvito.Domain;
 using SolarLab.MyAvito.Infrastructure.DataBase;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SolarLab.MyAvito.Infrastructure
 {
@@ -19,24 +24,9 @@ namespace SolarLab.MyAvito.Infrastructure
             return user;
         }
 
-        public Task<User> GetAllAsync(CancellationToken cancellationToken)
+        public Task<User> GetByLoginAsync(string login, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<User> GetAsync(Guid id, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<User> DeleteAsync(Guid id, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<User> EditAsync(User user, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
+            return _context.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Login == login);
         }
     }
 }

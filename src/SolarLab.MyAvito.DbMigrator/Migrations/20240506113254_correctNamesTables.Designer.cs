@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SolarLab.MyAvito.DbMigrator;
@@ -11,9 +12,11 @@ using SolarLab.MyAvito.DbMigrator;
 namespace SolarLab.MyAvito.DbMigrator.Migrations
 {
     [DbContext(typeof(MigrationDbContext))]
-    partial class MigrationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240506113254_correctNamesTables")]
+    partial class correctNamesTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,10 +54,6 @@ namespace SolarLab.MyAvito.DbMigrator.Migrations
                         .HasColumnType("character varying(70)")
                         .HasColumnName("title");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("userId");
-
                     b.HasKey("Id");
 
                     b.ToTable("advertisement", (string)null);
@@ -66,10 +65,6 @@ namespace SolarLab.MyAvito.DbMigrator.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("id");
-
-                    b.Property<Guid>("AdvertisementId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("advertisementId");
 
                     b.Property<byte[]>("Content")
                         .IsRequired()

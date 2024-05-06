@@ -9,10 +9,14 @@ namespace SolarLab.MyAvito.Infrastructure.DataBase
         public ApplicationDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions) { }
 
         public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Advertisement> Advertisements { get; set; } = null!;
+        public DbSet<File> Files { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new AdvertisementConfiguration());
+            modelBuilder.ApplyConfiguration(new FileConfiguration());
         }
     }
 }
