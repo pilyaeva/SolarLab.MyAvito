@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SolarLab.MyAvito.Api.Models;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -39,16 +41,29 @@ namespace SolarLab.MyAvito.Api.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize]
         [ProducesResponseType(typeof(Guid), (int)HttpStatusCode.Created)]
         public async Task<IActionResult> Add(
             [FromForm] AdvertisementDtoIn advertisementsDtoIn,
             CancellationToken cancellationToken)
         {
+            var userIdString = User.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            if (userIdString == null)
+            {
+                return BadRequest("Не задан ID пользователя");
+            }
+
+            if (!Guid.TryParse(userIdString, out var userId))
+            {
+                return BadRequest("Невозможно распознать ID пользователя");
+            }
+
             var addedAdvertisement = await _advertisementRepository.AddAsync(
                 new Advertisement
                 {
                     Id = Guid.NewGuid(),
-                    UserId = Guid.Empty,
+                    UserId = userId,
                     Title = advertisementsDtoIn.Title,
                     Price = advertisementsDtoIn.Price,
                     Condition = advertisementsDtoIn.Condition,
