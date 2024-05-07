@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using SolarLab.MyAvito.Api.Models;
-using SolarLab.MyAvito.Application;
+using SolarLab.MyAvito.Application.Repositories;
 using SolarLab.MyAvito.Domain;
 
 namespace SolarLab.MyAvito.Api.Controllers
@@ -59,12 +59,14 @@ namespace SolarLab.MyAvito.Api.Controllers
         }
 
         /// <summary>
-        /// Аутентификация пользователя.
+        /// Аутентифицирует пользователя.
         /// </summary>
         /// <param name="userSignInDtoIn"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpPost("SignIn")]
+        [ProducesResponseType(typeof(string), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(string), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> SignIn([FromBody] UserSignInDtoIn userSignInDtoIn, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetByLoginAsync(userSignInDtoIn.Login, cancellationToken);

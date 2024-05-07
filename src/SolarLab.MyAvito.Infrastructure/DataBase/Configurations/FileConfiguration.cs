@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SolarLab.MyAvito.Domain;
 
-namespace SolarLab.MyAvito.Infrastructure.DataBase.Configurations
+namespace SolarLab.MyAvito.Infrastructure.Database.Configurations
 {
     public class FileConfiguration : IEntityTypeConfiguration<File>
     {

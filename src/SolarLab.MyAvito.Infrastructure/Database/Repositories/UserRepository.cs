@@ -1,13 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SolarLab.MyAvito.Application;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using SolarLab.MyAvito.Application.Repositories;
 using SolarLab.MyAvito.Domain;
 using SolarLab.MyAvito.Infrastructure.DataBase;
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace SolarLab.MyAvito.Infrastructure
+namespace SolarLab.MyAvito.Infrastructure.Database.Repositories
 {
     public class UserRepository : IUserRepository
     {

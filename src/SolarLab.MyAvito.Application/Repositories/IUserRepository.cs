@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SolarLab.MyAvito.Application
+namespace SolarLab.MyAvito.Application.Repositories
 {
     public interface IUserRepository
     {

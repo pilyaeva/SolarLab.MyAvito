@@ -13,8 +13,8 @@ using Microsoft.OpenApi.Models;
 using SolarLab.MyAvito.Api;
 using SolarLab.MyAvito.Api.Controllers;
 using SolarLab.MyAvito.Api.Validators;
-using SolarLab.MyAvito.Application;
-using SolarLab.MyAvito.Infrastructure;
+using SolarLab.MyAvito.Application.Repositories;
+using SolarLab.MyAvito.Infrastructure.Database.Repositories;
 using SolarLab.MyAvito.Infrastructure.DataBase;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SolarLab.MyAvito.Domain;
-using SolarLab.MyAvito.Infrastructure.DataBase.Configurations;
+using SolarLab.MyAvito.Infrastructure.Database.Configurations;
 
 namespace SolarLab.MyAvito.Infrastructure.DataBase
 {
