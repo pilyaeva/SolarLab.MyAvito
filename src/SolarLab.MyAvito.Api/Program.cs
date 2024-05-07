@@ -19,17 +19,13 @@ using SolarLab.MyAvito.Infrastructure.DataBase;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
     options.IncludeXmlComments(Path.Combine(Path.Combine(AppContext.BaseDirectory,
         $"{typeof(UsersController).Assembly.GetName().Name}.xml")));
-
-    //options.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAvito", Version = "v1" });
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
@@ -71,22 +67,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            // указывает, будет ли валидироваться издатель при валидации токена
             ValidateIssuer = false,
-            // будет ли валидироваться потребитель токена
             ValidateAudience = false,
-            // будет ли валидироваться время существования
             ValidateLifetime = true,
-            // установка ключа безопасности
             IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
-            // валидация ключа безопасности
             ValidateIssuerSigningKey = true,
         };
     });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -1,16 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
-using SolarLab.MyAvito.Api.Models;
-using SolarLab.MyAvito.Application;
-using SolarLab.MyAvito.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
+using SolarLab.MyAvito.Api.Models;
+using SolarLab.MyAvito.Application;
+using SolarLab.MyAvito.Domain;
 
 namespace SolarLab.MyAvito.Api.Controllers
 {
@@ -85,11 +85,10 @@ namespace SolarLab.MyAvito.Api.Controllers
                 new Claim(ClaimTypes.Name, user.Login)
             };
 
-            // создаем JWT-токен
             var jwt = new JwtSecurityToken(
-                    claims: claims,
-                    expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(2)),
-                    signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));//HmacSha256(?)
+                claims: claims,
+                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(2)),
+                signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
 
             return Ok(new JwtSecurityTokenHandler().WriteToken(jwt));
         }
